@@ -61,6 +61,44 @@ if (!function_exists('str_contains')) {
         if (strlen($needle) > strlen($haystack)) {
             return false;
         }
-        return (false !==  strpos($haystack, $needle));
+        return (false !== strpos($haystack, $needle));
+    }
+}
+
+if (!function_exists('str_contains_any')) {
+    /**
+     * String contains any.
+     * 
+     * @param   string  $haystack   Source string.
+     * @param   array   $needles    What we're looking for.
+     * @return  bool
+     */
+    function str_contains_any(string $haystack, array $needles) : bool
+    {
+        foreach ($needles as $needle) {
+            if (str_contains($haystack, $needle)) {
+                return true;
+            }
+        }
+        return false;
+    }
+}
+
+if (!function_exists('str_contains_all')) {
+    /**
+     * String contains all.
+     * 
+     * @param   string  $haystack   Source string.
+     * @param   array   $needles    What we're looking for.
+     * @return  bool
+     */
+    function str_contains_all(string $haystack, array $needles) : bool
+    {
+        foreach ($needles as $needle) {
+            if (!str_contains($haystack, $needle)) {
+                return false;
+            }
+        }
+        return true;
     }
 }
