@@ -151,7 +151,6 @@ class PluginUpdate extends PluginBase implements PluginUpdateInterface
         $this->loadRepoReleaseInfo();
 
         // Compare the versions.
-        var_dump($this->githubAPIResult);
         $doUpdate = version_compare($this->githubAPIResult->tag_name, $transient->checked[$this->pluginSlug]);
 
 
