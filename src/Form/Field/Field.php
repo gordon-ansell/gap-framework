@@ -256,6 +256,7 @@ class Field extends Html implements FieldInterface
     {
         if (count($this->inputFilters) > 0) {
             foreach ($this->inputFilters as $filter) {
+                var_dump('here');
                 $source = $filter->filter($source);
             }
         }
