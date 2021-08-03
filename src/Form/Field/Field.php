@@ -256,10 +256,14 @@ class Field extends Html implements FieldInterface
     {
         if (count($this->inputFilters) > 0) {
             foreach ($this->inputFilters as $filter) {
-                var_dump($source);
+                if ($this->label == 'Secret Vector') {
+                    var_dump($source);
+                }
                 $source = $filter->filter($source);
-                var_dump($source);
-                throw new \Exception('blah');
+                if ($this->label == 'Secret Vector') {
+                    var_dump($source);
+                    throw new \Exception('blah');
+                }
             }
         }
         return $source;
