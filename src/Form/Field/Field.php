@@ -258,11 +258,11 @@ class Field extends Html implements FieldInterface
     {
         if (count($this->inputFilters) > 0) {
             foreach ($this->inputFilters as $filter) {
-                if ($this->n == 'Secret Vector') {
+                if ($this->n == 'secret-iv') {
                     var_dump($source);
                 }
                 $source = $filter->filter($source);
-                if ($this->n == 'Secret Vector') {
+                if ($this->n == 'secret-iv') {
                     var_dump($source);
                     throw new \Exception('blah');
                 }
