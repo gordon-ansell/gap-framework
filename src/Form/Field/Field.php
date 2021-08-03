@@ -128,6 +128,8 @@ class Field extends Html implements FieldInterface
                 $this->label->setData($params['label']);
                 unset($params['label']);
             }
+
+            $this->n = $params['name'];
         }
 
         $this->allowAutoWrap = $allowAutoWrap;
@@ -256,11 +258,11 @@ class Field extends Html implements FieldInterface
     {
         if (count($this->inputFilters) > 0) {
             foreach ($this->inputFilters as $filter) {
-                if ($this->label == 'Secret Vector') {
+                if ($this->n == 'Secret Vector') {
                     var_dump($source);
                 }
                 $source = $filter->filter($source);
-                if ($this->label == 'Secret Vector') {
+                if ($this->n == 'Secret Vector') {
                     var_dump($source);
                     throw new \Exception('blah');
                 }
