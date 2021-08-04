@@ -166,10 +166,10 @@ class TableMaker extends Html implements TableMakerInterface
             $data = $this->tbody->renderVertical();
         } else {
             if (is_null($this->thead)) {
-                throw new RuntimeException("THead is null in table.");
+                return null;
             }
             if (is_null($this->tbody)) {
-                throw new RuntimeException("TBody is null in table.");
+                return null;
             }
             $data = $this->thead->render() . $this->tbody->render();
             if (!is_null($this->tfoot)) {
