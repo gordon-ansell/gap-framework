@@ -13,6 +13,7 @@ declare(strict_types=1);
 namespace GreenFedora\Html\TableMaker;
 
 use GreenFedora\Html\Html;
+use GreenFedora\Html\TableMaker\Exception\RuntimeException;
 use GreenFedora\Html\TableMaker\TableMakerInterface;
 use GreenFedora\Html\TableMaker\THeadInterface;
 use GreenFedora\Html\TableMaker\THead;
@@ -164,6 +165,12 @@ class TableMaker extends Html implements TableMakerInterface
         if ('vertical' == $this->format) {
             $data = $this->tbody->renderVertical();
         } else {
+            if (is_null($this->thead)) {
+                throw new RuntimeException("THead is null in table.");
+            }
+            if (is_null($this->tbody)) {
+                throw new RuntimeException("TBody is null in table.");
+            }
             $data = $this->thead->render() . $this->tbody->render();
             if (!is_null($this->tfoot)) {
                 $data .= $this->tfoot->render();
