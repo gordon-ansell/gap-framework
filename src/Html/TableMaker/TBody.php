@@ -125,7 +125,7 @@ class TBody extends Html implements TBodyInterface
         foreach($this->rows as $row) {
             $rowData = '';
             foreach($this->getTable()->thead()->getColumns() as $k => $col) {
-                $rowData .= $col->renderBody($row->getColumnData($k));
+                $rowData .= $col->renderBody($row->getColumnData(strval($k)));
             }
             $data .= $row->render($rowData);
         }
