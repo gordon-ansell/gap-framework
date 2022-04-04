@@ -23,9 +23,9 @@ interface WordpressApplicationInterface extends ApplicationInterface
     /**
      * Initialisation.
      * 
-     * @return  WordpressApplicationInterface
+     * @return  ApplicationInterface
      */
-    public function init(): WordpressApplicationInterface;
+    public function init(): ApplicationInterface;
 
     /**
      * Get the plugin file.

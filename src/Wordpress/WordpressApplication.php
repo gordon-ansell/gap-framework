@@ -12,6 +12,7 @@ declare(strict_types=1);
 namespace GreenFedora\Wordpress;
 
 use GreenFedora\Application\Application;
+use GreenFedora\Application\ApplicationInterface;
 use GreenFedora\Logger\LoggerInterface;
 use GreenFedora\Logger\Logger;
 use GreenFedora\Logger\Formatter\StdLogFormatter;
@@ -53,9 +54,9 @@ abstract class WordpressApplication extends Application implements WordpressAppl
     /**
      * Initialisation.
      * 
-     * @return  WordpressApplicationInterface
+     * @return  ApplicationInterface
      */
-    public function init(): WordpressApplicationInterface
+    public function init(): ApplicationInterface
     {
         $this->registerActivationDeactivationHooks();
         return $this;
